@@ -1,0 +1,10 @@
+DELIMITER //
+CREATE FUNCTION fn_CalcularIdade(dataNascimento DATE) 
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE idade INT;
+    SET idade = TIMESTAMPDIFF(YEAR, dataNascimento, CURDATE());
+    RETURN idade;
+END //
+DELIMITER ;
